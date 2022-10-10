@@ -6,8 +6,9 @@ dbName      = "default"
 columnName  = "clarity"
 columnValue = "VVS2"
 
+
 # If the table exists in the specified database...
-if tableExists(tableName, dbName):
+if myfunctions.tableExists(tableName, dbName):
   # And the specified column exists in that table...
   if columnExists(tableName, dbName, columnName):
     # Then report the number of rows for the specified value in that column.
