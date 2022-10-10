@@ -10,20 +10,20 @@ spark = SparkSession.builder \
 
 # Does the specified table exist in the specified database?
 def tableExists(tableName, dbName):
-  return spark.catalog.tableExists(f"{dbName}.{tableName}")
+    return spark.catalog.tableExists(f"{dbName}.{tableName}")
 
 # Does the specified column exist in the specified table?
 def columnExists(tableName, dbName, columnName):
-  df = spark.sql(f"SELECT * FROM {dbName}.{tableName}")
+    df = spark.sql(f"SELECT * FROM {dbName}.{tableName}")
 
-  if columnName in df.columns:
-    return True
-  else:
-    return False
+    if columnName in df.columns:
+        return True
+    else:
+        return False
 
 # How many rows are there for the specified value in the specified column
 # for the specified table in the specified database?
 def numRowsInColumnForValue(tableName, dbName, columnName, columnValue):
-  df = spark.sql(f"SELECT * FROM {dbName}.{tableName} WHERE {columnName} = '{columnValue}'")
+    df = spark.sql(f"SELECT * FROM {dbName}.{tableName} WHERE {columnName} = '{columnValue}'")
 
-  return df.count()
+    return df.count()
